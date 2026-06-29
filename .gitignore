@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/
+dist/
+build/
+.env
+.env.*
+
+# Local Codex workspace notes, not website source.
+memory/
+tasks/
