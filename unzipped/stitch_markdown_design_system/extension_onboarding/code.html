@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Source+Sans+3:wght@400;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: transparent;
+        }
+        .onboarding-card {
+            width: 360px;
+            min-height: 520px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .shimmer {
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "risk-high": "#B91C1C",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "risk-low": "#2563EB",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#271902",
+                        "on-primary-fixed": "#121b2e",
+                        "inverse-primary": "#bdc6e0",
+                        "inverse-on-surface": "#f0f1f3",
+                        "secondary-container": "#316bf3",
+                        "surface-dim": "#d9dadc",
+                        "primary": "#01081a",
+                        "surface": "#f8f9fb",
+                        "on-primary-fixed-variant": "#3e475b",
+                        "border-subtle": "#D9E0E7",
+                        "surface-panel": "#FFFFFF",
+                        "inverse-surface": "#2e3132",
+                        "surface-container": "#edeef0",
+                        "risk-medium": "#B45309",
+                        "background": "#f8f9fb",
+                        "surface-variant": "#e1e2e4",
+                        "surface-tint": "#555e74",
+                        "on-secondary-fixed": "#00174b",
+                        "surface-container-high": "#e7e8ea",
+                        "secondary": "#0051d5",
+                        "on-surface": "#191c1e",
+                        "success": "#15803D",
+                        "primary-container": "#172033",
+                        "primary-fixed-dim": "#bdc6e0",
+                        "on-tertiary-fixed-variant": "#564426",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "border-strong": "#B8C3CF",
+                        "on-primary-container": "#7f879f",
+                        "surface-container-low": "#f2f4f6",
+                        "on-secondary-container": "#fefcff",
+                        "outline-variant": "#c6c6cd",
+                        "text-muted": "#718096",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#ddc39b",
+                        "secondary-fixed": "#dbe1ff",
+                        "on-tertiary-container": "#9b8561",
+                        "on-error-container": "#93000a",
+                        "surface-raised": "#F2F5F8",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "tertiary": "#0f0800",
+                        "on-surface-variant": "#45474c",
+                        "tertiary-container": "#2c1e04",
+                        "on-background": "#191c1e",
+                        "primary-fixed": "#d9e2fc",
+                        "text-secondary": "#4C5A6A",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#f8f9fb",
+                        "outline": "#76777d",
+                        "tertiary-fixed": "#fadfb5",
+                        "surface-container-highest": "#e1e2e4",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max-width": "400px",
+                        "edge-margin": "1.25rem",
+                        "gutter": "1rem",
+                        "stack-sm": "0.5rem",
+                        "stack-md": "1rem",
+                        "stack-lg": "1.5rem"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["\"Source Sans 3\""],
+                        "body-md": ["\"Source Sans 3\""],
+                        "body-sm": ["\"Source Sans 3\""],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-mono": ["JetBrains Mono"],
+                        "body-lg": ["\"Source Sans 3\""]
+                    },
+                    "fontSize": {
+                        "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "headline-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-mono": ["14px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex items-center justify-center min-h-screen bg-transparent p-4">
+<!-- Onboarding Popup Container -->
+<main class="onboarding-card bg-surface-panel border border-border-subtle rounded-xl flex flex-col overflow-hidden animate-in fade-in zoom-in duration-300">
+<!-- Header Section -->
+<header class="p-edge-margin bg-surface-raised border-b border-border-subtle relative overflow-hidden">
+<!-- Subtle Decorative Element -->
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-secondary opacity-5 rounded-full"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-stack-sm">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Assignment Effort Planner</h1>
+</div>
+<p class="font-body-md text-body-md text-text-secondary">See the work before it surprises you</p>
+</div>
+</header>
+<!-- Main Content -->
+<div class="p-edge-margin flex-grow space-y-stack-lg">
+<!-- Hero Visual Placeholder -->
+<div class="w-full h-24 bg-surface-raised border border-border-subtle rounded-lg flex items-center justify-center overflow-hidden relative">
+<div class="absolute inset-0 shimmer opacity-20"></div>
+<div class="flex gap-3 items-end">
+<div class="w-6 h-10 bg-secondary/20 rounded-t-sm"></div>
+<div class="w-6 h-16 bg-secondary/40 rounded-t-sm"></div>
+<div class="w-6 h-12 bg-secondary rounded-t-sm"></div>
+<div class="w-6 h-8 bg-secondary/30 rounded-t-sm"></div>
+<div class="w-6 h-14 bg-secondary/10 rounded-t-sm"></div>
+</div>
+<div class="absolute bottom-2 left-4">
+<span class="font-label-mono text-[10px] text-text-muted uppercase">Estimated Velocity</span>
+</div>
+</div>
+<!-- Permission Rows -->
+<section class="space-y-stack-md">
+<h2 class="font-label-caps text-label-caps text-text-muted uppercase">Permissions</h2>
+<div class="space-y-stack-sm">
+<!-- Permission 1 -->
+<div class="flex items-start gap-gutter p-2 hover:bg-surface-raised rounded-lg transition-colors group">
+<div class="mt-0.5 p-1.5 bg-surface-container rounded-md group-hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-secondary text-[20px]">language</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-primary font-bold">Works on Canvas</span>
+<span class="font-body-sm text-body-sm text-text-secondary">Integrates directly into your course dashboard.</span>
+</div>
+</div>
+<!-- Permission 2 -->
+<div class="flex items-start gap-gutter p-2 hover:bg-surface-raised rounded-lg transition-colors group">
+<div class="mt-0.5 p-1.5 bg-surface-container rounded-md group-hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-secondary text-[20px]">description</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-primary font-bold">Reads assignment details</span>
+<span class="font-body-sm text-body-sm text-text-secondary">Analyzes rubrics and instructions for depth.</span>
+</div>
+</div>
+<!-- Permission 3 -->
+<div class="flex items-start gap-gutter p-2 hover:bg-surface-raised rounded-lg transition-colors group">
+<div class="mt-0.5 p-1.5 bg-surface-container rounded-md group-hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-secondary text-[20px]">encrypted</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md text-primary font-bold">Stores history locally</span>
+<span class="font-body-sm text-body-sm text-text-secondary">Your data stays on your machine, always private.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Academic Integrity Note -->
+<div class="bg-surface-raised p-3 rounded-lg border-l-2 border-border-strong">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-text-secondary text-[16px]">verified_user</span>
+<span class="font-label-caps text-label-caps text-text-secondary uppercase">Integrity Policy</span>
+</div>
+<p class="font-body-sm text-body-sm text-text-secondary leading-relaxed">
+                    StudyCompanion acts as a scheduling assistant only. It does not generate content or answer assignment questions.
+                </p>
+</div>
+</div>
+<!-- Footer Action -->
+<footer class="p-edge-margin pt-0 pb-6">
+<button class="w-full bg-primary hover:bg-primary-container text-on-primary py-3 px-4 rounded-lg font-body-md font-bold transition-all active:scale-[0.98] focus:ring-2 focus:ring-secondary/50 flex items-center justify-center gap-2 shadow-sm">
+                Enable on Canvas
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<p class="mt-3 text-center font-body-sm text-body-sm text-text-muted">
+                By enabling, you agree to our <a class="underline hover:text-secondary" href="#">Terms of Service</a>.
+            </p>
+</footer>
+</main>
+<!-- Micro-interactions Script -->
+<script>
+        document.querySelector('button').addEventListener('click', function() {
+            this.innerHTML = `
+                <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.9</script></body></html>

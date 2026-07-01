@@ -4,6 +4,8 @@ dist/
 build/
 .env
 .env.*
+*.pem
+*.key
 
 # Local Codex workspace notes, not website source.
 memory/

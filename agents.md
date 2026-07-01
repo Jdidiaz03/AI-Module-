@@ -8,6 +8,22 @@ The product works only with the brand's app. The app listens to the sound of ker
 
 The current primary deliverable is a landing page. The product format is microwave popcorn bags.
 
+## New Chat Context Engineering Rule
+
+At the start of every new Codex chat in this workspace, read `memory.md` after this file. Then read `memory/MEMORY.md`, `memory/lessons.md`, and `tasks/todo.md` before planning or building. Use those files to recover project context, current sprint status, user workflow preferences, and prior lessons.
+
+## GitHub Push Security Audit Rule
+
+For any Codex-assisted workflow that pushes code to GitHub or opens a pull request:
+
+- Before pushing, spawn a dedicated security-review subagent.
+- The subagent must audit the staged or committed diff and relevant files for high-confidence private information patterns, including API keys, access tokens, private keys, JWTs, hard-coded secrets, passwords, `.env` values, credentials, credit card numbers, US Social Security numbers, customer or personal data, private URLs, internal notes, generated artifacts, and accidental logs.
+- The subagent must check that real secrets are not present in committed config files and that `.env`, `.env.local`, `.env.*.local`, `*.pem`, and `*.key` remain ignored.
+- If private information is found, do not push. Remove it, rotate anything exposed, and run the subagent audit again.
+- Intentional fake fixtures may use `security-audit: allow-next-line` on the line above the fixture. Use this only for values that cannot unlock any real account, service, database, or environment.
+- The final GitHub update must state that the security audit was completed and whether anything was fixed.
+- Keep `SECURITY_AUDIT_RULE.md` aligned with this rule.
+
 ## Audience
 
 Primary audience:
