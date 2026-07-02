@@ -1,0 +1,6 @@
+{
+  "name": "Academic Effort Planner",
+  "description": "Estimate assignment effort, difficulty, and risk, then plan study blocks directly in a clean Canvas-integrated experience.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

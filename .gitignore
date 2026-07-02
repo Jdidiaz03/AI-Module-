@@ -2,8 +2,10 @@
 node_modules/
 dist/
 build/
-.env
-.env.*
+coverage/
+*.log
+.env*
+!.env.example
 *.pem
 *.key
 
