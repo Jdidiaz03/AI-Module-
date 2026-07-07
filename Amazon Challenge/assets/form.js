@@ -42,15 +42,21 @@ if (form) {
       if (!response.ok || !result.ok) {
         throw new Error(result.error || `Review endpoint failed with status ${response.status}`);
       }
+      if (result.output) {
+        saveSubmittedOutput(result.output);
+      }
       form.reset();
       message.textContent = "";
       const link = document.createElement("a");
       link.href = result.dashboard_url;
       link.textContent = "Open the automation dashboard";
+      const isLocal = ["localhost", "127.0.0.1", ""].includes(window.location.hostname);
       const emailStatus =
         result.email?.status === "sent"
           ? `Email sent to ${body.email}.`
-          : `Email queued locally because SMTP is not configured. ${result.email?.path || ""}`;
+          : isLocal
+            ? `Email queued locally because SMTP is not configured. ${result.email?.path || ""}`
+            : "Email was not sent because SMTP is not configured; the result is available on the dashboard.";
       message.append(
         `Automation complete for ${result.company}. ${emailStatus} `,
         link,
@@ -60,12 +66,28 @@ if (form) {
       message.scrollIntoView({ behavior: "smooth", block: "nearest" });
     } catch (error) {
       console.error("Failed to run review request", error);
-      message.textContent =
-        "The automation server is not responding. Stop the basic http.server and run: python3 automation/server.py 8000";
+      const localFailure = ["localhost", "127.0.0.1", ""].includes(window.location.hostname);
+      message.textContent = localFailure
+        ? "The automation server is not responding. Stop the basic http.server and run: python3 automation/server.py 8000"
+        : "The live review API did not respond. Please try again or check the Vercel deployment settings.";
       message.classList.add("is-visible");
       message.scrollIntoView({ behavior: "smooth", block: "nearest" });
     } finally {
       submitButton.disabled = false;
     }
   });
+}
+
+function saveSubmittedOutput(output) {
+  const storageKey = "amazonCopilotSubmittedOutputs";
+  try {
+    const existing = JSON.parse(localStorage.getItem(storageKey) || "[]");
+    const next = [
+      output,
+      ...existing.filter((item) => item && item.case_id !== output.case_id),
+    ].slice(0, 12);
+    localStorage.setItem(storageKey, JSON.stringify(next));
+  } catch (error) {
+    console.warn("Could not save submitted output for dashboard handoff.", error);
+  }
 }

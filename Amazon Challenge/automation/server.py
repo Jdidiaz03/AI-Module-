@@ -51,6 +51,7 @@ class ReviewServer(SimpleHTTPRequestHandler):
                 "recommendation_file": f"/automation/outputs/{output['case_id']}_recommendation.md",
                 "intake_file": str(intake_path.relative_to(WORKSPACE_ROOT)),
                 "email": email_result,
+                "output": output,
             })
         except Exception as error:
             self.write_json({"ok": False, "error": str(error)}, status=HTTPStatus.BAD_REQUEST)

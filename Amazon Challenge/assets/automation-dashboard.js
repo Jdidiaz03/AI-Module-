@@ -16,6 +16,7 @@ let caseOutputs = [];
 let activeCaseId = new URLSearchParams(window.location.search).get("case");
 const requestedCaseId = activeCaseId;
 let latestLoopReport = null;
+const SUBMITTED_OUTPUTS_KEY = "amazonCopilotSubmittedOutputs";
 
 function formatNumber(value) {
   return new Intl.NumberFormat("en-US").format(value || 0);
@@ -65,19 +66,22 @@ async function loadDashboard() {
       ...outputFiles.map(fetchJson),
     ]);
     latestLoopReport = loopReport;
-    caseOutputs = outputs.sort((a, b) => a.analysis.company.localeCompare(b.analysis.company));
+    caseOutputs = mergeOutputs(outputs, loadSubmittedOutputs())
+      .sort((a, b) => a.analysis.company.localeCompare(b.analysis.company));
     if (requestedCaseId && !caseOutputs.some((item) => item.case_id === requestedCaseId)) {
       dataSourceStatus.textContent = "Requested case missing";
       projectOverview.innerHTML = "";
       dashboardState.classList.add("is-error");
       dashboardState.textContent =
-        `No generated result was found for ${requestedCaseId}. Submit the form again or rerun the automation server.`;
+        `No generated result was found for ${requestedCaseId}. Submit the form again from this browser or rerun the automation server.`;
       return;
     }
     if (!activeCaseId) {
       activeCaseId = caseOutputs[0]?.case_id;
     }
-    dataSourceStatus.textContent = "Connected to automation outputs";
+    dataSourceStatus.textContent = loadSubmittedOutputs().length
+      ? "Connected to automation outputs and submitted reviews"
+      : "Connected to automation outputs";
     renderProjectOverview(loopReport, caseOutputs);
     renderCaseSwitcher();
     renderActiveCase();
@@ -89,6 +93,28 @@ async function loadDashboard() {
     dashboardState.textContent =
       "Automation output could not be loaded. Start a local server from the project folder, then open http://localhost:8000/dashboard.html.";
   }
+}
+
+function loadSubmittedOutputs() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(SUBMITTED_OUTPUTS_KEY) || "[]");
+    return Array.isArray(parsed)
+      ? parsed.filter((item) => item?.case_id && item?.analysis)
+      : [];
+  } catch (error) {
+    console.warn("Submitted dashboard results could not be loaded.", error);
+    return [];
+  }
+}
+
+function mergeOutputs(staticOutputs, submittedOutputs) {
+  const byId = new Map();
+  [...staticOutputs, ...submittedOutputs].forEach((output) => {
+    if (output?.case_id) {
+      byId.set(output.case_id, output);
+    }
+  });
+  return Array.from(byId.values());
 }
 
 async function loadOutputFiles() {
@@ -176,6 +202,7 @@ function renderActiveCase() {
   const score = analysis.opportunity_score;
   const win = analysis.win_probability_score;
   const loopCase = latestLoopReport?.case_results?.find((item) => item.case_id === output.case_id);
+  const isSubmittedCase = output.case_id?.startsWith("submitted_");
   const recommendationHref = `automation/outputs/${output.case_id}_recommendation.md`;
   const delivery = output.delivery;
   dashboardState.hidden = true;
@@ -187,7 +214,7 @@ function renderActiveCase() {
         <h3>${escapeHtml(analysis.company)}</h3>
         <p>${escapeHtml(analysis.executive_summary)}</p>
         <div class="result-links" aria-label="Generated output links">
-          <a href="${escapeAttribute(recommendationHref)}">Open generated recommendation</a>
+          ${isSubmittedCase ? "" : `<a href="${escapeAttribute(recommendationHref)}">Open generated recommendation</a>`}
           <a href="automation/outputs/loop_report.md">Open loop report</a>
         </div>
       </div>
@@ -342,11 +369,15 @@ function actionItem(action) {
 
 function deliveryPanel(delivery) {
   const email = delivery.email || {};
-  const queuedPath = email.path ? `<span>Outbox file: ${escapeHtml(email.path)}</span>` : "";
+  const isLocal = ["localhost", "127.0.0.1", ""].includes(window.location.hostname);
+  const queuedPath = isLocal && email.path ? `<span>Outbox file: ${escapeHtml(email.path)}</span>` : "";
+  const queuedHeading = isLocal
+    ? "Result email queued locally"
+    : "Email not sent until SMTP is configured";
   return `
     <section class="dashboard-panel">
       <p class="dashboard-label">Email delivery</p>
-      <h3>${email.status === "sent" ? "Result email sent" : "Result email queued locally"}</h3>
+      <h3>${email.status === "sent" ? "Result email sent" : queuedHeading}</h3>
       <ul class="compact-list">
         <li>
           <strong>Recipient</strong>
