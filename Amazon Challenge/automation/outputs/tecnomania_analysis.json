@@ -1,0 +1,453 @@
+{
+  "case_id": "tecnomania",
+  "rule_version": "amazon-shipping-industry-challenge-2026-v1",
+  "automation_mode": "offline_local_deterministic_loop",
+  "pipeline_trace": [
+    "source_pack_loaded",
+    "facts_normalized",
+    "service_guardrails_applied",
+    "pricing_scenarios_generated",
+    "recommendation_rendered",
+    "validator_agents_reviewed"
+  ],
+  "analysis": {
+    "case_id": "tecnomania",
+    "company": "Tecnomania S.L.U.",
+    "recommendation": "Conditional pursue: price only serviceable scope and require leadership review.",
+    "executive_summary": "Tecnomania is a Consumer electronics retail opportunity at Tender / RFQ stage. The automation recommends conditional pursue: price only serviceable scope and require leadership review. Serviceable volume is 2,207,520 parcels annually (6,048 daily), not the full raw opportunity. Key exclusions include Spain - Canary Islands, Ceuta & Melilla, Portugal - Mainland, Portugal - Madeira & Azores, Standard return shipments from customer to Tecnomania.",
+    "service_fit": {
+      "supported_scope": [
+        {
+          "id": "spain_peninsula",
+          "label": "Spain - Iberian Peninsula",
+          "share": 0.8,
+          "evidence": [
+            "TECM-GEO-01"
+          ],
+          "reason": "Spain - Iberian Peninsula is in supported challenge scope."
+        },
+        {
+          "id": "balearic_islands",
+          "label": "Spain - Balearic Islands",
+          "share": 0.04,
+          "evidence": [
+            "TECM-GEO-01"
+          ],
+          "reason": "Spain - Balearic Islands is in supported challenge scope."
+        },
+        {
+          "id": "home_delivery",
+          "label": "Home delivery with at least three attempts",
+          "evidence": [
+            "TECM-SVC-01"
+          ],
+          "reason": "Requirement aligns with Amazon Shipping challenge scope."
+        },
+        {
+          "id": "tracking_api",
+          "label": "Real-time parcel tracking and API integration",
+          "evidence": [
+            "TECM-TECH-01"
+          ],
+          "reason": "Requirement aligns with Amazon Shipping challenge scope."
+        }
+      ],
+      "blocked_scope": [
+        {
+          "id": "canary_ceuta_melilla",
+          "label": "Spain - Canary Islands, Ceuta & Melilla",
+          "share": 0.02,
+          "evidence": [
+            "TECM-GEO-01"
+          ],
+          "reason": "Canary Islands, Ceuta and Melilla are outside current Amazon Shipping scope for this challenge."
+        },
+        {
+          "id": "portugal_mainland",
+          "label": "Portugal - Mainland",
+          "share": 0.12,
+          "evidence": [
+            "TECM-GEO-01"
+          ],
+          "reason": "Portugal is outside current Amazon Shipping scope for this challenge."
+        },
+        {
+          "id": "portugal_islands",
+          "label": "Portugal - Madeira & Azores",
+          "share": 0.02,
+          "evidence": [
+            "TECM-GEO-01"
+          ],
+          "reason": "Madeira and Azores are outside current Amazon Shipping scope for this challenge."
+        },
+        {
+          "id": "client_returns",
+          "label": "Standard return shipments from customer to Tecnomania",
+          "evidence": [
+            "TECM-RET-01"
+          ],
+          "reason": "Client returns are outside the current challenge service scope."
+        },
+        {
+          "id": "pudo",
+          "label": "Pickup point / parcel locker fallback",
+          "evidence": [
+            "TECM-PUDO-01"
+          ],
+          "reason": "Pickup/drop-off and locker delivery are outside the current challenge service scope."
+        },
+        {
+          "id": "heavy_bulky",
+          "label": "Parcels above 15kg or above 80x80x60cm",
+          "evidence": [
+            "TECM-WGT-01",
+            "TECM-DIM-01"
+          ],
+          "reason": "Heavy or bulky parcels above challenge limits require exclusion or separate carrier handling."
+        }
+      ],
+      "review_scope": [],
+      "supported_geo_share": 0.84,
+      "out_of_scope_geo_share": 0.16,
+      "parcel_profile_adjustment": 0.9,
+      "serviceable_share": 0.756,
+      "raw_daily_volume": 8000,
+      "raw_annual_volume": 2920000,
+      "serviceable_daily_volume": 6048,
+      "serviceable_annual_volume": 2207520,
+      "region_multiplier": 1.0167,
+      "parcel_adjustment_reason": "At least 10% of shipments are over 15kg and 10% are XL/XXL. Treat overlap as unknown and use a conservative 90% parcel-profile eligibility factor.",
+      "parcel_adjustment_evidence": [
+        "TECM-WGT-01",
+        "TECM-DIM-01"
+      ]
+    },
+    "opportunity_score": {
+      "score": 73,
+      "scale": "0-100",
+      "drivers": [
+        "Serviceable share after geographic and parcel-profile filtering",
+        "Annual serviceable volume",
+        "Strength of customer pain points",
+        "Target-margin pricing feasibility",
+        "Operational complexity from blocked or review-needed scope"
+      ],
+      "evidence": [
+        "FIN-01",
+        "SVC-01"
+      ]
+    },
+    "risk_assessment": {
+      "level": "High",
+      "risks": [
+        {
+          "severity": "High",
+          "risk": "Spain - Canary Islands, Ceuta & Melilla",
+          "mitigation": "Exclude from Amazon Shipping proposal or route to a separate partner/workaround outside the priced scope.",
+          "evidence": [
+            "TECM-GEO-01"
+          ]
+        },
+        {
+          "severity": "High",
+          "risk": "Portugal - Mainland",
+          "mitigation": "Exclude from Amazon Shipping proposal or route to a separate partner/workaround outside the priced scope.",
+          "evidence": [
+            "TECM-GEO-01"
+          ]
+        },
+        {
+          "severity": "High",
+          "risk": "Portugal - Madeira & Azores",
+          "mitigation": "Exclude from Amazon Shipping proposal or route to a separate partner/workaround outside the priced scope.",
+          "evidence": [
+            "TECM-GEO-01"
+          ]
+        },
+        {
+          "severity": "High",
+          "risk": "Standard return shipments from customer to Tecnomania",
+          "mitigation": "Exclude from Amazon Shipping proposal or route to a separate partner/workaround outside the priced scope.",
+          "evidence": [
+            "TECM-RET-01"
+          ]
+        },
+        {
+          "severity": "High",
+          "risk": "Pickup point / parcel locker fallback",
+          "mitigation": "Exclude from Amazon Shipping proposal or route to a separate partner/workaround outside the priced scope.",
+          "evidence": [
+            "TECM-PUDO-01"
+          ]
+        },
+        {
+          "severity": "High",
+          "risk": "Parcels above 15kg or above 80x80x60cm",
+          "mitigation": "Exclude from Amazon Shipping proposal or route to a separate partner/workaround outside the priced scope.",
+          "evidence": [
+            "TECM-WGT-01",
+            "TECM-DIM-01"
+          ]
+        }
+      ],
+      "serviceable_annual_volume": 2207520
+    },
+    "pricing_recommendation": {
+      "currency": "EUR",
+      "cost_row": "4000_plus",
+      "weighted_base_cost_eur": 1.39,
+      "region_multiplier": 1.0167,
+      "scenarios": [
+        {
+          "id": "aggressive",
+          "label": "Aggressive",
+          "target_margin": 0.13,
+          "approval_status": "within_guardrails",
+          "cost_per_parcel_eur": 1.51,
+          "price_per_parcel_eur": 1.74,
+          "contribution_per_parcel_eur": 0.23,
+          "annual_serviceable_volume": 2207520,
+          "annual_revenue_eur": 3831598,
+          "annual_contribution_eur": 498108,
+          "premium_services": [
+            "SOD"
+          ],
+          "rationale": "Use only if Amazon needs a sharp entry price and leadership accepts minimum-margin risk.",
+          "trade_offs": "Maximizes price competitiveness but leaves little room for concessions. Includes SOD premium controls.",
+          "negotiation_strategy": "Use as a floor only after the customer confirms all unsupported scope is removed or split.",
+          "evidence": [
+            "FIN-01",
+            "SVC-01"
+          ]
+        },
+        {
+          "id": "balanced",
+          "label": "Balanced",
+          "target_margin": 0.21,
+          "approval_status": "within_guardrails",
+          "cost_per_parcel_eur": 1.86,
+          "price_per_parcel_eur": 2.35,
+          "contribution_per_parcel_eur": 0.49,
+          "annual_serviceable_volume": 2207520,
+          "annual_revenue_eur": 5197623,
+          "annual_contribution_eur": 1091501,
+          "premium_services": [
+            "SOD",
+            "OTP"
+          ],
+          "rationale": "Recommended anchor because it meets the finance target while preserving room to negotiate.",
+          "trade_offs": "Balances competitiveness with the 21% target margin and keeps negotiation room. Includes SOD, OTP premium controls.",
+          "negotiation_strategy": "Lead with this option and frame it around service reliability, peak readiness, and transparent pricing.",
+          "evidence": [
+            "FIN-01",
+            "SVC-01"
+          ]
+        },
+        {
+          "id": "conservative",
+          "label": "Conservative",
+          "target_margin": 0.25,
+          "approval_status": "within_guardrails",
+          "cost_per_parcel_eur": 1.86,
+          "price_per_parcel_eur": 2.48,
+          "contribution_per_parcel_eur": 0.62,
+          "annual_serviceable_volume": 2207520,
+          "annual_revenue_eur": 5474830,
+          "annual_contribution_eur": 1368707,
+          "premium_services": [
+            "SOD",
+            "OTP"
+          ],
+          "rationale": "Use when the customer values resilience, premium controls, and implementation certainty over lowest price.",
+          "trade_offs": "Protects margin and execution risk, but may weaken price-score competitiveness. Includes SOD, OTP premium controls.",
+          "negotiation_strategy": "Use as the executive-safe option for high-value electronics with OTP/SOD and strict scope carve-outs.",
+          "evidence": [
+            "FIN-01",
+            "SVC-01"
+          ]
+        }
+      ],
+      "recommended_scenario_id": "balanced",
+      "pricing_blocked": false,
+      "guardrails": {
+        "target_contribution_margin": 0.21,
+        "minimum_contribution_margin": 0.13,
+        "vp_approval_below": 0.13,
+        "automatic_no_go_below": 0.09
+      }
+    },
+    "commercial_strategy": {
+      "positioning": "Lead with serviceable Iberian Spain scope, high-value proof-of-delivery controls, and strict carve-outs for Portugal, returns, heavy parcels, and PUDO fallback.",
+      "recommended_pricing_anchor": "balanced",
+      "talk_tracks": [
+        "Peak resilience and maintained delivery attempts",
+        "Transparent pricing tied to serviceable scope",
+        "Evidence-backed exclusions to avoid overpromising",
+        "Human-reviewed proposal before export"
+      ]
+    },
+    "required_follow_up_actions": [
+      {
+        "owner": "Business Development",
+        "question": "Confirm that the customer accepts Amazon Shipping pricing only for serviceable scope.",
+        "blocks_export": true,
+        "evidence": [
+          "SVC-01"
+        ]
+      },
+      {
+        "owner": "Pricing",
+        "question": "Review the balanced scenario before customer-facing proposal release.",
+        "blocks_export": true,
+        "evidence": [
+          "FIN-01"
+        ]
+      },
+      {
+        "owner": "Operations",
+        "question": "Validate parcel-level exclusion method for over-15kg and oversize electronics before contract language.",
+        "blocks_export": true,
+        "evidence": [
+          "TECM-WGT-01",
+          "TECM-DIM-01"
+        ]
+      },
+      {
+        "owner": "Business Development",
+        "question": "Confirm whether Tecnomania accepts separate handling for Portugal, Canary/Ceuta/Melilla, returns, and PUDO fallback.",
+        "blocks_export": true,
+        "evidence": [
+          "TECM-GEO-01",
+          "TECM-RET-01",
+          "TECM-PUDO-01"
+        ]
+      }
+    ],
+    "client_proposal": {
+      "title": "Amazon Shipping Proposal for Tecnomania",
+      "status": "draft_locked_pending_human_review",
+      "customer_ready_after_approval": true,
+      "sections": [
+        {
+          "heading": "Executive Recommendation",
+          "body": "Conditional pursue: price only serviceable scope and require leadership review."
+        },
+        {
+          "heading": "Proposed Scope",
+          "body": "Amazon Shipping proposes to serve 2,207,520 annual parcels within supported Spain scope, subject to parcel-level eligibility checks."
+        },
+        {
+          "heading": "Pricing Anchor",
+          "body": "Balanced scenario: EUR 2.35 per parcel at 21% target contribution margin."
+        },
+        {
+          "heading": "Explicit Exclusions",
+          "body": "Spain - Canary Islands, Ceuta & Melilla; Portugal - Mainland; Portugal - Madeira & Azores; Standard return shipments from customer to Tecnomania; Pickup point / parcel locker fallback; Parcels above 15kg or above 80x80x60cm"
+        },
+        {
+          "heading": "Implementation Plan",
+          "body": "Confirm scope, validate parcel data, complete API readiness review, run peak-readiness governance, then release final proposal."
+        }
+      ]
+    },
+    "win_probability_score": {
+      "probability": 0.39,
+      "method": "Rule-based proxy using service fit, pricing feasibility, complexity, and comparable opportunity logic.",
+      "evidence": [
+        "FIN-01",
+        "SVC-01"
+      ]
+    },
+    "sources_used": [
+      {
+        "id": "FIN-01",
+        "source": "PL_Industry_Challenge.xlsx",
+        "locator": "Read Me / Finance Guardrails per deal",
+        "claim": "Target margin 21%, minimum margin 13%, VP approval below 13%, automatic no-go below 9%."
+      },
+      {
+        "id": "SVC-01",
+        "source": "Amazon_Shipping_AI_Copilot.pptx",
+        "locator": "Service guardrails slide",
+        "claim": "Supported challenge scope is Peninsular Spain and Balearics, 1-2 day delivery, OTP/SOD, max 15kg, max 80x80x60cm."
+      },
+      {
+        "id": "TECM-DIM-01",
+        "source": "Opportunity1_Tecnomania.docx",
+        "locator": "Section 5.5 Parcel Dimensions",
+        "claim": "10% of parcels are XL/XXL up to 110x80x30cm, above the 80x80x60cm challenge size envelope."
+      },
+      {
+        "id": "TECM-GEO-01",
+        "source": "Opportunity1_Tecnomania.docx",
+        "locator": "Section 5.3 Geographic Distribution",
+        "claim": "Spain Peninsula 80%, Balearics 4%, Canary/Ceuta/Melilla 2%, Portugal Mainland 12%, Madeira/Azores 2%."
+      },
+      {
+        "id": "TECM-PUDO-01",
+        "source": "Opportunity1_Tecnomania.docx",
+        "locator": "Section 6.2 Alternative Delivery Options",
+        "claim": "Tecnomania asks for pickup point / locker fallback after failed home delivery attempts."
+      },
+      {
+        "id": "TECM-RET-01",
+        "source": "Opportunity1_Tecnomania.docx",
+        "locator": "Section 7.4 Returns Management",
+        "claim": "Tecnomania expects returns volume of approximately 8.5% of forward shipments."
+      },
+      {
+        "id": "TECM-SVC-01",
+        "source": "Opportunity1_Tecnomania.docx",
+        "locator": "Section 7.2 Delivery Attempts",
+        "claim": "Tecnomania requires a minimum of three home-delivery attempts."
+      },
+      {
+        "id": "TECM-TECH-01",
+        "source": "Opportunity1_Tecnomania.docx",
+        "locator": "Section 9.1 Integration Requirements",
+        "claim": "Tecnomania requires API label, manifest, tracking, claims, and webhook integration."
+      },
+      {
+        "id": "TECM-VOL-01",
+        "source": "Opportunity1_Tecnomania.docx",
+        "locator": "Section 5.1 Annual Volume Projection",
+        "claim": "Total annual parcels forecast is 2,920,000."
+      },
+      {
+        "id": "TECM-WGT-01",
+        "source": "Opportunity1_Tecnomania.docx",
+        "locator": "Section 5.4 Weight Profile",
+        "claim": "6% of parcels are 15-20kg and 4% are 20-30kg, above the 15kg challenge limit."
+      }
+    ],
+    "human_review_required": true,
+    "export_status": "locked_until_human_approval",
+    "source_pack": {
+      "original_folder": "/Users/juliandiaz/Desktop/Design AI Module /Amazon Challenge",
+      "working_extracts_folder": "source_extracts"
+    }
+  },
+  "iterations": 1,
+  "passed": true,
+  "validator_results": [
+    {
+      "agent": "Code Quality Agent",
+      "status": "pass",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "agent": "Project Alignment Agent",
+      "status": "pass",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "agent": "KPI Trial Agent",
+      "status": "pass",
+      "finding_count": 0,
+      "findings": []
+    }
+  ],
+  "repair_history": []
+}

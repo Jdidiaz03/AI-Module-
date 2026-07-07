@@ -1,0 +1,40 @@
+Amazon Shipping Industry Challenge 2026
+Project Brief — Enterprise Opportunity Copilot
+Read this brief first. It explains exactly what your team must deliver, how you will be evaluated, and the timeline you must follow.
+1. The Mission
+You are stepping into the role of an Amazon Shipping Business Developer. Your team will build an AI-powered "Enterprise Opportunity Copilot" — a working MVP that helps Amazon Shipping identify, qualify and win enterprise shipping opportunities. You will work with the same kind of documents a real business developer uses: a service description, a pricing/P&L workbook, a historical opportunities dataset, and live opportunity packs from prospective customers.
+2. What You Must Deliver
+A functional MVP (a working prototype, not slides) that addresses your assigned Amazon business problem.
+A completed submission form with your value proposition, the Amazon problem you solve, a description, your AI solution and AI stack, and a link to your MVP.
+A 30-second pitch video recorded through the submission page (you get two recording attempts).
+3. One Submission Per Team
+Only ONE person per group submits on behalf of the whole team. In your submission you MUST clearly state your group number and list every group member (full names). Duplicate submissions from the same team may be disqualified.
+4. The 30-Second Pitch Video
+The pitch video is recorded directly in the app on the "My Submission" page. Keep it to 30 seconds. You have a maximum of two recording attempts, and recording closes at the video deadline. Rehearse before you record — make the problem, your solution and the impact crystal clear.
+5. Evaluation Rubric (100 points)
+[Table]
+Criterion | Max points
+Amazon Challenge Relevance — how well it addresses the assigned Amazon business problem | 20
+Business Problem Understanding — clarity and depth of problem framing and value proposition | 15
+AI Solution Quality — soundness and appropriateness of the AI approach and stack | 20
+MVP Functionality — how functional and complete the delivered MVP is | 20
+Innovation — originality and creativity of the solution | 15
+Pitch Clarity — clarity and persuasiveness of the 30-second pitch video | 10
+6. Timeline & Access
+Challenge data and the submission form unlock at the scheduled data-access time — a countdown is shown in the app.
+Challenge materials (briefs, service description, pricing workbook, datasets and opportunity packs) unlock at the same time.
+Submissions close at the submission deadline; the pitch video has its own recording deadline.
+Evaluations by professors and Amazon evaluators open after submissions close.
+7. Challenge Materials You Will Receive
+Challenge Brief (Read Me First) — full challenge description, mission and expected outputs.
+Service Description — what Amazon Shipping can and cannot do (coverage, features, limits, standards).
+Pricing Workbook (P&L) — simplified cost model across first, middle and last mile plus financial guardrails.
+Historical Opportunities Dataset — past opportunities with won/lost outcomes to benchmark against.
+Opportunity 1 — Tecnomania (RFQ): a formal, structured tender from a consumer electronics retailer.
+Opportunity 2 — Pink Papaya (Discovery Pack): fragmentary CRM notes and emails from a fashion brand.
+8. Tips to Win
+Read the Challenge Brief and Service Description before you build — solve the real Amazon problem.
+Ground your solution in the data: use the historical dataset and pricing guardrails to justify decisions.
+Ship something that actually works. A small, functional MVP beats an elaborate mockup.
+Make your 30-second pitch about impact: problem, solution, and the value to Amazon Shipping.
+Good luck — build something a real Amazon Shipping Business Developer would want to use.

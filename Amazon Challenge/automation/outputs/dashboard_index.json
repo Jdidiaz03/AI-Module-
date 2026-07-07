@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-07-07T10:48:04.834303+00:00",
+  "cases": [
+    {
+      "case_id": "iberia_outfitters",
+      "company": "Iberia Outfitters S.L.",
+      "file": "automation/outputs/iberia_outfitters_analysis.json",
+      "recommendation_file": "automation/outputs/iberia_outfitters_recommendation.md",
+      "passed": true,
+      "iterations": 1
+    },
+    {
+      "case_id": "pink_papaya",
+      "company": "Pink Papaya S.L.",
+      "file": "automation/outputs/pink_papaya_analysis.json",
+      "recommendation_file": "automation/outputs/pink_papaya_recommendation.md",
+      "passed": true,
+      "iterations": 1
+    },
+    {
+      "case_id": "tecnomania",
+      "company": "Tecnomania S.L.U.",
+      "file": "automation/outputs/tecnomania_analysis.json",
+      "recommendation_file": "automation/outputs/tecnomania_recommendation.md",
+      "passed": true,
+      "iterations": 1
+    }
+  ]
+}

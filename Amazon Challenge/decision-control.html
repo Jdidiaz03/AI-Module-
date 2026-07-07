@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Decision Control | Amazon Shipping Opportunity Copilot</title>
+    <meta name="description" content="Evidence, guardrails, and pricing checks for shipping opportunity qualification." />
+    <link rel="stylesheet" href="assets/site.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar" aria-label="Site header">
+        <a class="brand" href="index.html" aria-label="Amazon Shipping Opportunity Copilot home">
+          <div class="brand-mark" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5v-9Z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+              <path
+                d="m8 5.5 8 4.5M4.5 8 12 12.3 19.5 8M12 12.5V21"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <div class="brand-text">
+            <p class="brand-name">Amazon Shipping Opportunity Copilot</p>
+            <p class="brand-kicker">Evidence-first commercial evaluation</p>
+          </div>
+        </a>
+        <nav class="nav-actions" aria-label="Primary">
+          <a class="nav-link" href="workflow.html">Workflow</a>
+          <a class="nav-link" href="case-preview.html">Case preview</a>
+          <a class="nav-link" href="decision-control.html" aria-current="page">Decision control</a>
+          <a class="nav-link" href="dashboard.html">Dashboard</a>
+          <a class="nav-link" href="how-it-works.html">How it works</a>
+          <a class="nav-link" href="request-review.html">Request review</a>
+        </nav>
+      </header>
+
+      <main class="main">
+        <section id="decision-control" class="page-section split-section" aria-labelledby="decision-title">
+          <div>
+            <p class="section-kicker">Why it matters</p>
+            <h2 id="decision-title" class="section-heading">
+              Keep serviceability, pricing, and evidence rules in front of the reviewer.
+            </h2>
+            <p class="section-lede">
+              The project plan is explicit: deterministic guardrails must be visible, auditable, and
+              impossible for AI output to hide. This page explains the decision controls that keep the
+              recommendation honest.
+            </p>
+            <ul class="issue-list">
+              <li>
+                <p class="issue-title">Rules decide what can be proposed</p>
+                <p class="issue-copy">
+                  Spain Peninsula and Balearics can continue through review; returns, PUDO, dangerous
+                  goods, and unsupported geography cannot be folded into a clean recommendation.
+                </p>
+              </li>
+              <li>
+                <p class="issue-title">Margins decide who must approve</p>
+                <p class="issue-copy">
+                  Pricing scenarios show contribution margin and approval requirement, so below-threshold
+                  deals are not presented as simple approvals.
+                </p>
+              </li>
+              <li>
+                <p class="issue-title">Evidence decides what can be exported</p>
+                <p class="issue-copy">
+                  Every important claim has to connect to a source fact, a guardrail rule, or an assumption
+                  label before it appears in client-facing output.
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="evidence-panel">
+            <img
+              src="assets/marketing-campaign/wide-pipeline-header.png"
+              alt="A decision pipeline moving from uploaded files through guardrails, pricing, verification, and export"
+              loading="lazy"
+            />
+            <div class="evidence-panel-body">
+              <p class="evidence-panel-title">A case file, not a chatbot answer.</p>
+              <p class="evidence-panel-copy">
+                The workflow keeps automation, rules, evidence, and approval in one place so reviewers
+                can see what passed, what failed, and what still needs a human decision.
+              </p>
+              <div class="outcome-grid" aria-label="Decision outcomes">
+                <div class="outcome-row">
+                  <p class="outcome-label">Recommendation</p>
+                  <p class="outcome-value">Pursue, conditional, needs review, or no-go</p>
+                </div>
+                <div class="outcome-row">
+                  <p class="outcome-label">Evidence</p>
+                  <p class="outcome-value">Sources, assumptions, verifier status</p>
+                </div>
+                <div class="outcome-row">
+                  <p class="outcome-label">Pricing</p>
+                  <p class="outcome-value">Aggressive, balanced, conservative</p>
+                </div>
+                <div class="outcome-row">
+                  <p class="outcome-label">Export</p>
+                  <p class="outcome-value">Blocked until human approval</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-section" aria-labelledby="guardrail-title">
+          <p class="section-kicker">Guardrail table</p>
+          <h2 id="guardrail-title" class="section-heading">The checks the reviewer should see before pricing.</h2>
+          <table class="data-table" aria-label="Serviceability guardrails">
+            <thead>
+              <tr>
+                <th>Rule</th>
+                <th>Project value</th>
+                <th>Review result</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Serviceable geography</strong></td>
+                <td>Spain Peninsula and Balearics are in scope; unsupported regions are separated.</td>
+                <td><span class="status-chip">Pass or watch</span></td>
+              </tr>
+              <tr>
+                <td><strong>Delivery promise</strong></td>
+                <td>1-2 day delivery expectation must be checked against scope.</td>
+                <td><span class="status-chip warning">Needs review</span></td>
+              </tr>
+              <tr>
+                <td><strong>Parcel profile</strong></td>
+                <td>15kg max weight and 80x80x60 cm max dimensions.</td>
+                <td><span class="status-chip">Pass or blocked</span></td>
+              </tr>
+              <tr>
+                <td><strong>Premium services</strong></td>
+                <td>OTP EUR 0.35, SOD EUR 0.10, Balearics 1.35x multiplier.</td>
+                <td><span class="status-chip">Pricing input</span></td>
+              </tr>
+              <tr>
+                <td><strong>Out-of-scope services</strong></td>
+                <td>Returns, PUDO, and dangerous goods are not included in a clean proposal.</td>
+                <td><span class="status-chip danger">Blocked</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="page-section" aria-labelledby="pricing-title">
+          <p class="section-kicker">Pricing thresholds</p>
+          <h2 id="pricing-title" class="section-heading">Margin status changes the decision label.</h2>
+          <div class="detail-grid">
+            <article class="detail-card">
+              <h3>Target</h3>
+              <p>At or above 21% contribution margin can support a stronger pursue recommendation.</p>
+            </article>
+            <article class="detail-card">
+              <h3>Minimum acceptable</h3>
+              <p>At or above 13% can continue, but the recommendation should explain the tradeoff.</p>
+            </article>
+            <article class="detail-card">
+              <h3>VP approval</h3>
+              <p>Below 13% requires escalation; below 9% becomes an automatic no-go threshold.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="final-cta" aria-labelledby="final-title">
+          <div>
+            <h2 id="final-title">Give reviewers a recommendation they can inspect.</h2>
+            <p>
+              Start with a source-backed case file, then let pricing, operations, finance, and sales
+              leadership review the same evidence before export.
+            </p>
+          </div>
+          <a class="button button-primary" href="request-review.html">Request the case review</a>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          <span>Amazon Shipping Opportunity Copilot</span>
+          <span>Evidence-backed recommendations. Human approval before export.</span>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
