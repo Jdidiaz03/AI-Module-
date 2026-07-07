@@ -1,0 +1,458 @@
+{
+  "case_id": "pink_papaya",
+  "rule_version": "amazon-shipping-industry-challenge-2026-v1",
+  "automation_mode": "offline_local_deterministic_loop",
+  "pipeline_trace": [
+    "source_pack_loaded",
+    "facts_normalized",
+    "service_guardrails_applied",
+    "pricing_scenarios_generated",
+    "recommendation_rendered",
+    "validator_agents_reviewed"
+  ],
+  "analysis": {
+    "case_id": "pink_papaya",
+    "company": "Pink Papaya S.L.",
+    "recommendation": "Conditional pursue: Spain-first proposal with explicit France gap.",
+    "executive_summary": "Pink Papaya is a Direct-to-consumer fashion opportunity at Discovery / Qualification stage. The automation recommends conditional pursue: spain-first proposal with explicit france gap. Serviceable volume is 1,054,120 parcels annually (2,888 daily), not the full raw opportunity. Key exclusions include France, Italy, Portugal, Pickup points used today as workaround.",
+    "service_fit": {
+      "supported_scope": [
+        {
+          "id": "spain_peninsula",
+          "label": "Spain",
+          "share": 0.76,
+          "evidence": [
+            "PAPA-GEO-01"
+          ],
+          "reason": "Spain is in supported challenge scope."
+        },
+        {
+          "id": "home_delivery",
+          "label": "Home delivery as the primary brand experience",
+          "evidence": [
+            "PAPA-HOMEDEL-01"
+          ],
+          "reason": "Requirement aligns with Amazon Shipping challenge scope."
+        },
+        {
+          "id": "weekend_delivery",
+          "label": "Weekend relevance due to Thursday-to-Sunday sales spikes",
+          "evidence": [
+            "PAPA-WEEKEND-01"
+          ],
+          "reason": "Requirement aligns with Amazon Shipping challenge scope."
+        }
+      ],
+      "blocked_scope": [
+        {
+          "id": "france",
+          "label": "France",
+          "share": 0.18,
+          "evidence": [
+            "PAPA-GEO-01",
+            "PAPA-FRA-01",
+            "PAPA-FRA-02"
+          ],
+          "reason": "France is outside current Amazon Shipping scope for this challenge."
+        },
+        {
+          "id": "italy",
+          "label": "Italy",
+          "share": 0.05,
+          "evidence": [
+            "PAPA-GEO-01"
+          ],
+          "reason": "Italy is outside current Amazon Shipping scope for this challenge."
+        },
+        {
+          "id": "portugal_mainland",
+          "label": "Portugal",
+          "share": 0.01,
+          "evidence": [
+            "PAPA-GEO-01"
+          ],
+          "reason": "Portugal is outside current Amazon Shipping scope for this challenge."
+        },
+        {
+          "id": "pudo",
+          "label": "Pickup points used today as workaround",
+          "evidence": [
+            "PAPA-PUDO-01"
+          ],
+          "reason": "Pickup/drop-off and locker delivery are outside the current challenge service scope."
+        }
+      ],
+      "review_scope": [
+        {
+          "id": "heavy_bulky",
+          "label": "Papaya Home chunky/heavy or awkward large items",
+          "evidence": [
+            "PAPA-HOME-01"
+          ],
+          "reason": "Requirement needs human validation before it can be promised commercially."
+        },
+        {
+          "id": "client_returns",
+          "label": "Claims and returns process improvements",
+          "evidence": [
+            "PAPA-CLAIMS-01"
+          ],
+          "reason": "Requirement needs human validation before it can be promised commercially."
+        }
+      ],
+      "supported_geo_share": 0.76,
+      "out_of_scope_geo_share": 0.24,
+      "parcel_profile_adjustment": 1.0,
+      "serviceable_share": 0.76,
+      "raw_daily_volume": 3800,
+      "raw_annual_volume": 1387000,
+      "serviceable_daily_volume": 2888,
+      "serviceable_annual_volume": 1054120,
+      "region_multiplier": 1.0,
+      "parcel_adjustment_reason": "90% of parcels are light apparel/accessories. Papaya Home heavy or awkward items are low-volume but must be validated before final pricing.",
+      "parcel_adjustment_evidence": [
+        "PAPA-PARCEL-01",
+        "PAPA-HOME-01"
+      ]
+    },
+    "opportunity_score": {
+      "score": 76,
+      "scale": "0-100",
+      "drivers": [
+        "Serviceable share after geographic and parcel-profile filtering",
+        "Annual serviceable volume",
+        "Strength of customer pain points",
+        "Target-margin pricing feasibility",
+        "Operational complexity from blocked or review-needed scope"
+      ],
+      "evidence": [
+        "FIN-01",
+        "SVC-01"
+      ]
+    },
+    "risk_assessment": {
+      "level": "High",
+      "risks": [
+        {
+          "severity": "High",
+          "risk": "France",
+          "mitigation": "Exclude from Amazon Shipping proposal or route to a separate partner/workaround outside the priced scope.",
+          "evidence": [
+            "PAPA-GEO-01",
+            "PAPA-FRA-01",
+            "PAPA-FRA-02"
+          ]
+        },
+        {
+          "severity": "High",
+          "risk": "Italy",
+          "mitigation": "Exclude from Amazon Shipping proposal or route to a separate partner/workaround outside the priced scope.",
+          "evidence": [
+            "PAPA-GEO-01"
+          ]
+        },
+        {
+          "severity": "High",
+          "risk": "Portugal",
+          "mitigation": "Exclude from Amazon Shipping proposal or route to a separate partner/workaround outside the priced scope.",
+          "evidence": [
+            "PAPA-GEO-01"
+          ]
+        },
+        {
+          "severity": "High",
+          "risk": "Pickup points used today as workaround",
+          "mitigation": "Exclude from Amazon Shipping proposal or route to a separate partner/workaround outside the priced scope.",
+          "evidence": [
+            "PAPA-PUDO-01"
+          ]
+        },
+        {
+          "severity": "Medium",
+          "risk": "Papaya Home chunky/heavy or awkward large items",
+          "mitigation": "Confirm details with customer and operations before customer-facing commitment.",
+          "evidence": [
+            "PAPA-HOME-01"
+          ]
+        },
+        {
+          "severity": "Medium",
+          "risk": "Claims and returns process improvements",
+          "mitigation": "Confirm details with customer and operations before customer-facing commitment.",
+          "evidence": [
+            "PAPA-CLAIMS-01"
+          ]
+        },
+        {
+          "severity": "High",
+          "risk": "Contradiction: France timing",
+          "mitigation": "Resolve customer alignment. Position A: Lucia says Pink Papaya could live with Spain first and France later. Position B: Marta says France is not optional and needs a real timeline.",
+          "evidence": [
+            "PAPA-FRA-01",
+            "PAPA-FRA-02"
+          ]
+        }
+      ],
+      "serviceable_annual_volume": 1054120
+    },
+    "pricing_recommendation": {
+      "currency": "EUR",
+      "cost_row": "2001_3000",
+      "weighted_base_cost_eur": 1.42,
+      "region_multiplier": 1.0,
+      "scenarios": [
+        {
+          "id": "aggressive",
+          "label": "Aggressive",
+          "target_margin": 0.13,
+          "approval_status": "within_guardrails",
+          "cost_per_parcel_eur": 1.42,
+          "price_per_parcel_eur": 1.63,
+          "contribution_per_parcel_eur": 0.21,
+          "annual_serviceable_volume": 1054120,
+          "annual_revenue_eur": 1716822,
+          "annual_contribution_eur": 223187,
+          "premium_services": [],
+          "rationale": "Use only if Amazon needs a sharp entry price and leadership accepts minimum-margin risk.",
+          "trade_offs": "Maximizes price competitiveness but leaves little room for concessions. Keeps premium services optional.",
+          "negotiation_strategy": "Use as a floor only after the customer confirms all unsupported scope is removed or split.",
+          "evidence": [
+            "FIN-01",
+            "SVC-01"
+          ]
+        },
+        {
+          "id": "balanced",
+          "label": "Balanced",
+          "target_margin": 0.21,
+          "approval_status": "within_guardrails",
+          "cost_per_parcel_eur": 1.42,
+          "price_per_parcel_eur": 1.79,
+          "contribution_per_parcel_eur": 0.38,
+          "annual_serviceable_volume": 1054120,
+          "annual_revenue_eur": 1890678,
+          "annual_contribution_eur": 397042,
+          "premium_services": [],
+          "rationale": "Recommended anchor because it meets the finance target while preserving room to negotiate.",
+          "trade_offs": "Balances competitiveness with the 21% target margin and keeps negotiation room. Keeps premium services optional.",
+          "negotiation_strategy": "Lead with this option and frame it around service reliability, peak readiness, and transparent pricing.",
+          "evidence": [
+            "FIN-01",
+            "SVC-01"
+          ]
+        },
+        {
+          "id": "conservative",
+          "label": "Conservative",
+          "target_margin": 0.25,
+          "approval_status": "within_guardrails",
+          "cost_per_parcel_eur": 1.42,
+          "price_per_parcel_eur": 1.89,
+          "contribution_per_parcel_eur": 0.47,
+          "annual_serviceable_volume": 1054120,
+          "annual_revenue_eur": 1991514,
+          "annual_contribution_eur": 497878,
+          "premium_services": [],
+          "rationale": "Use when the customer values resilience, premium controls, and implementation certainty over lowest price.",
+          "trade_offs": "Protects margin and execution risk, but may weaken price-score competitiveness. Keeps premium services optional.",
+          "negotiation_strategy": "Use if Pink Papaya prioritizes peak resilience and CX protection over lowest Spain-only rate.",
+          "evidence": [
+            "FIN-01",
+            "SVC-01"
+          ]
+        }
+      ],
+      "recommended_scenario_id": "balanced",
+      "pricing_blocked": false,
+      "guardrails": {
+        "target_contribution_margin": 0.21,
+        "minimum_contribution_margin": 0.13,
+        "vp_approval_below": 0.13,
+        "automatic_no_go_below": 0.09
+      }
+    },
+    "commercial_strategy": {
+      "positioning": "Lead with a Spain-first peak resilience and home-delivery recovery plan. Be direct that France is not in current scope and needs a separate timeline or partner answer.",
+      "recommended_pricing_anchor": "balanced",
+      "talk_tracks": [
+        "Peak resilience and maintained delivery attempts",
+        "Transparent pricing tied to serviceable scope",
+        "Evidence-backed exclusions to avoid overpromising",
+        "Human-reviewed proposal before export"
+      ]
+    },
+    "required_follow_up_actions": [
+      {
+        "owner": "Business Development",
+        "question": "Confirm that the customer accepts Amazon Shipping pricing only for serviceable scope.",
+        "blocks_export": true,
+        "evidence": [
+          "SVC-01"
+        ]
+      },
+      {
+        "owner": "Pricing",
+        "question": "Review the balanced scenario before customer-facing proposal release.",
+        "blocks_export": true,
+        "evidence": [
+          "FIN-01"
+        ]
+      },
+      {
+        "owner": "Business Development",
+        "question": "Resolve Lucia vs Marta contradiction on whether France can be phased after Spain.",
+        "blocks_export": true,
+        "evidence": [
+          "PAPA-FRA-01",
+          "PAPA-FRA-02"
+        ]
+      },
+      {
+        "owner": "Operations",
+        "question": "Request Papaya Home SKU weights and dimensions, especially anything above 15kg or 80x80x60cm.",
+        "blocks_export": true,
+        "evidence": [
+          "PAPA-HOME-01"
+        ]
+      }
+    ],
+    "client_proposal": {
+      "title": "Amazon Shipping Proposal for Pink Papaya",
+      "status": "draft_locked_pending_human_review",
+      "customer_ready_after_approval": true,
+      "sections": [
+        {
+          "heading": "Executive Recommendation",
+          "body": "Conditional pursue: Spain-first proposal with explicit France gap."
+        },
+        {
+          "heading": "Proposed Scope",
+          "body": "Amazon Shipping proposes to serve 1,054,120 annual parcels within supported Spain scope, subject to parcel-level eligibility checks."
+        },
+        {
+          "heading": "Pricing Anchor",
+          "body": "Balanced scenario: EUR 1.79 per parcel at 21% target contribution margin."
+        },
+        {
+          "heading": "Explicit Exclusions",
+          "body": "France; Italy; Portugal; Pickup points used today as workaround"
+        },
+        {
+          "heading": "Implementation Plan",
+          "body": "Confirm scope, validate parcel data, complete API readiness review, run peak-readiness governance, then release final proposal."
+        }
+      ]
+    },
+    "win_probability_score": {
+      "probability": 0.42,
+      "method": "Rule-based proxy using service fit, pricing feasibility, complexity, and comparable opportunity logic.",
+      "evidence": [
+        "FIN-01",
+        "SVC-01"
+      ]
+    },
+    "sources_used": [
+      {
+        "id": "FIN-01",
+        "source": "PL_Industry_Challenge.xlsx",
+        "locator": "Read Me / Finance Guardrails per deal",
+        "claim": "Target margin 21%, minimum margin 13%, VP approval below 13%, automatic no-go below 9%."
+      },
+      {
+        "id": "PAPA-CLAIMS-01",
+        "source": "Opportunity2_PinkPapaya.docx",
+        "locator": "Lucia email, 11 June 2026",
+        "claim": "Claims take nearly a month and require too much paperwork."
+      },
+      {
+        "id": "PAPA-FRA-01",
+        "source": "Opportunity2_PinkPapaya.docx",
+        "locator": "Lucia email, 12 June 2026",
+        "claim": "Lucia says Pink Papaya could launch Spain first and add France later if the plan is real."
+      },
+      {
+        "id": "PAPA-FRA-02",
+        "source": "Opportunity2_PinkPapaya.docx",
+        "locator": "Marta email, 13 June 2026",
+        "claim": "Marta says France is not a maybe-later market and requires a credible timeline."
+      },
+      {
+        "id": "PAPA-GEO-01",
+        "source": "Opportunity2_PinkPapaya.docx",
+        "locator": "Lucia email, 12 June 2026",
+        "claim": "Last month Spain was about 76%, France 18%, Italy 5%, Portugal 1%."
+      },
+      {
+        "id": "PAPA-HOME-01",
+        "source": "Opportunity2_PinkPapaya.docx",
+        "locator": "Lucia email, 12 June 2026",
+        "claim": "Papaya Home has some heavy or awkwardly large items at low volume."
+      },
+      {
+        "id": "PAPA-HOMEDEL-01",
+        "source": "Opportunity2_PinkPapaya.docx",
+        "locator": "Lucia email, 11 June 2026",
+        "claim": "The vast majority of customers want home delivery because that is the Pink Papaya experience."
+      },
+      {
+        "id": "PAPA-PARCEL-01",
+        "source": "Opportunity2_PinkPapaya.docx",
+        "locator": "Lucia email, 11 June 2026",
+        "claim": "90% of parcels are apparel and accessories, most well under 2kg."
+      },
+      {
+        "id": "PAPA-PUDO-01",
+        "source": "Opportunity2_PinkPapaya.docx",
+        "locator": "Lucia email, 12 June 2026",
+        "claim": "Pickup points are mostly a workaround because home delivery has been failing."
+      },
+      {
+        "id": "PAPA-VOL-01",
+        "source": "Opportunity2_PinkPapaya.docx",
+        "locator": "Lucia email, 11 June 2026",
+        "claim": "Normal volume is about 3,800 parcels per day; Black Friday reached roughly six times a normal day."
+      },
+      {
+        "id": "PAPA-WEEKEND-01",
+        "source": "Opportunity2_PinkPapaya.docx",
+        "locator": "Call note, 9 June 2026",
+        "claim": "Sales spike Thursday to Sunday, making weekend operations relevant."
+      },
+      {
+        "id": "SVC-01",
+        "source": "Amazon_Shipping_AI_Copilot.pptx",
+        "locator": "Service guardrails slide",
+        "claim": "Supported challenge scope is Peninsular Spain and Balearics, 1-2 day delivery, OTP/SOD, max 15kg, max 80x80x60cm."
+      }
+    ],
+    "human_review_required": true,
+    "export_status": "locked_until_human_approval",
+    "source_pack": {
+      "original_folder": "/Users/juliandiaz/Desktop/Design AI Module /Amazon Challenge",
+      "working_extracts_folder": "source_extracts"
+    }
+  },
+  "iterations": 1,
+  "passed": true,
+  "validator_results": [
+    {
+      "agent": "Code Quality Agent",
+      "status": "pass",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "agent": "Project Alignment Agent",
+      "status": "pass",
+      "finding_count": 0,
+      "findings": []
+    },
+    {
+      "agent": "KPI Trial Agent",
+      "status": "pass",
+      "finding_count": 0,
+      "findings": []
+    }
+  ],
+  "repair_history": []
+}

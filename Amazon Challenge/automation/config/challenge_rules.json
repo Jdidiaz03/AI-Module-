@@ -1,0 +1,125 @@
+{
+  "rule_version": "amazon-shipping-industry-challenge-2026-v1",
+  "source_pack": {
+    "original_folder": "/Users/juliandiaz/Desktop/Design AI Module /Amazon Challenge",
+    "working_extracts_folder": "source_extracts"
+  },
+  "service_guardrails": {
+    "supported_regions": {
+      "spain_peninsula": "Peninsular Spain",
+      "balearic_islands": "Balearic Islands"
+    },
+    "unsupported_regions": {
+      "france": "France is outside current Amazon Shipping scope for this challenge.",
+      "italy": "Italy is outside current Amazon Shipping scope for this challenge.",
+      "portugal_mainland": "Portugal is outside current Amazon Shipping scope for this challenge.",
+      "portugal_islands": "Madeira and Azores are outside current Amazon Shipping scope for this challenge.",
+      "canary_ceuta_melilla": "Canary Islands, Ceuta and Melilla are outside current Amazon Shipping scope for this challenge."
+    },
+    "max_weight_kg": 15,
+    "max_dimensions_cm": [80, 80, 60],
+    "supported_delivery": ["home_delivery", "one_to_two_day_delivery", "weekend_delivery", "tracking_api"],
+    "unsupported_services": {
+      "client_returns": "Client returns are outside the current challenge service scope.",
+      "pudo": "Pickup/drop-off and locker delivery are outside the current challenge service scope.",
+      "heavy_bulky": "Heavy or bulky parcels above challenge limits require exclusion or separate carrier handling.",
+      "dangerous_goods": "Dangerous or forbidden goods must be rejected."
+    },
+    "premium_service_cost_eur": {
+      "SOD": 0.10,
+      "OTP": 0.35
+    },
+    "region_multipliers": {
+      "spain_peninsula": 1.0,
+      "balearic_islands": 1.35
+    }
+  },
+  "financial_guardrails": {
+    "target_contribution_margin": 0.21,
+    "minimum_contribution_margin": 0.13,
+    "vp_approval_below": 0.13,
+    "automatic_no_go_below": 0.09,
+    "eur_usd_fx": 1.16
+  },
+  "cost_model": {
+    "currency": "EUR",
+    "support_cost_usd_per_parcel": 0.17,
+    "volume_rows": [
+      {
+        "id": "2001_3000",
+        "min_daily": 2001,
+        "max_daily": 3000,
+        "base_cost_eur_by_weight_band": {
+          "0_0_5": 1.09,
+          "0_5_1": 1.28,
+          "1_2": 1.56,
+          "2_5": 2.01,
+          "5_10": 2.59,
+          "10_15": 2.96
+        }
+      },
+      {
+        "id": "3001_4000",
+        "min_daily": 3001,
+        "max_daily": 4000,
+        "base_cost_eur_by_weight_band": {
+          "0_0_5": 0.90,
+          "0_5_1": 1.03,
+          "1_2": 1.12,
+          "2_5": 1.56,
+          "5_10": 2.00,
+          "10_15": 2.44
+        }
+      },
+      {
+        "id": "4000_plus",
+        "min_daily": 4001,
+        "max_daily": null,
+        "base_cost_eur_by_weight_band": {
+          "0_0_5": 0.74,
+          "0_5_1": 0.87,
+          "1_2": 0.99,
+          "2_5": 1.48,
+          "5_10": 1.92,
+          "10_15": 2.35
+        }
+      }
+    ],
+    "pricing_scenarios": [
+      {
+        "id": "aggressive",
+        "label": "Aggressive",
+        "target_margin": 0.13,
+        "positioning": "Use only if Amazon needs a sharp entry price and leadership accepts minimum-margin risk."
+      },
+      {
+        "id": "balanced",
+        "label": "Balanced",
+        "target_margin": 0.21,
+        "positioning": "Recommended anchor because it meets the finance target while preserving room to negotiate."
+      },
+      {
+        "id": "conservative",
+        "label": "Conservative",
+        "target_margin": 0.25,
+        "positioning": "Use when the customer values resilience, premium controls, and implementation certainty over lowest price."
+      }
+    ]
+  },
+  "kpis": {
+    "required_outputs": [
+      "executive_summary",
+      "opportunity_score",
+      "risk_assessment",
+      "pricing_recommendation",
+      "commercial_strategy",
+      "required_follow_up_actions",
+      "client_proposal",
+      "win_probability_score",
+      "sources_used"
+    ],
+    "expected_case_count": 3,
+    "max_loop_iterations": 4,
+    "human_approval_required_before_export": true
+  }
+}

@@ -1,0 +1,489 @@
+{
+  "cases": [
+    {
+      "id": "tecnomania",
+      "display_name": "Tecnomania S.L.U.",
+      "short_name": "Tecnomania",
+      "opportunity_type": "Formal RFQ",
+      "sector": "Consumer electronics retail",
+      "stage": "Tender / RFQ",
+      "source_files": [
+        "Opportunity1_Tecnomania.docx",
+        "PL_Industry_Challenge.xlsx",
+        "README_Industry_Challenge.docx",
+        "Amazon_Shipping_AI_Copilot.pptx"
+      ],
+      "volume": {
+        "annual_parcels": 2920000,
+        "baseline_daily_parcels": null,
+        "peak_multiplier": 5.0,
+        "start_date": "2027-01-01"
+      },
+      "geography": [
+        {
+          "region": "spain_peninsula",
+          "label": "Spain - Iberian Peninsula",
+          "share": 0.80,
+          "evidence": ["TECM-GEO-01"]
+        },
+        {
+          "region": "balearic_islands",
+          "label": "Spain - Balearic Islands",
+          "share": 0.04,
+          "evidence": ["TECM-GEO-01"]
+        },
+        {
+          "region": "canary_ceuta_melilla",
+          "label": "Spain - Canary Islands, Ceuta & Melilla",
+          "share": 0.02,
+          "evidence": ["TECM-GEO-01"]
+        },
+        {
+          "region": "portugal_mainland",
+          "label": "Portugal - Mainland",
+          "share": 0.12,
+          "evidence": ["TECM-GEO-01"]
+        },
+        {
+          "region": "portugal_islands",
+          "label": "Portugal - Madeira & Azores",
+          "share": 0.02,
+          "evidence": ["TECM-GEO-01"]
+        }
+      ],
+      "parcel_profile_adjustment": {
+        "serviceable_share_after_weight_and_size_limits": 0.90,
+        "reason": "At least 10% of shipments are over 15kg and 10% are XL/XXL. Treat overlap as unknown and use a conservative 90% parcel-profile eligibility factor.",
+        "evidence": ["TECM-WGT-01", "TECM-DIM-01"]
+      },
+      "pricing_weight_mix": {
+        "0_0_5": 0.08,
+        "0_5_1": 0.12,
+        "1_2": 0.25,
+        "2_5": 0.28,
+        "5_10": 0.17,
+        "10_15": 0.10
+      },
+      "requirements": [
+        {
+          "id": "home_delivery",
+          "label": "Home delivery with at least three attempts",
+          "status": "supported",
+          "evidence": ["TECM-SVC-01"]
+        },
+        {
+          "id": "tracking_api",
+          "label": "Real-time parcel tracking and API integration",
+          "status": "supported",
+          "evidence": ["TECM-TECH-01"]
+        },
+        {
+          "id": "client_returns",
+          "label": "Standard return shipments from customer to Tecnomania",
+          "status": "blocked",
+          "evidence": ["TECM-RET-01"]
+        },
+        {
+          "id": "pudo",
+          "label": "Pickup point / parcel locker fallback",
+          "status": "blocked",
+          "evidence": ["TECM-PUDO-01"]
+        },
+        {
+          "id": "heavy_bulky",
+          "label": "Parcels above 15kg or above 80x80x60cm",
+          "status": "blocked",
+          "evidence": ["TECM-WGT-01", "TECM-DIM-01"]
+        }
+      ],
+      "pain_points": [
+        "High-value electronics need stronger proof of delivery.",
+        "Peak resilience is critical during Black Friday and Q4.",
+        "Customer wants transparent pricing without discretionary surcharges."
+      ],
+      "premium_services_recommended": ["SOD", "OTP"],
+      "decision_hint": "conditional_pursue",
+      "evidence": {
+        "TECM-VOL-01": {
+          "source": "Opportunity1_Tecnomania.docx",
+          "locator": "Section 5.1 Annual Volume Projection",
+          "claim": "Total annual parcels forecast is 2,920,000."
+        },
+        "TECM-GEO-01": {
+          "source": "Opportunity1_Tecnomania.docx",
+          "locator": "Section 5.3 Geographic Distribution",
+          "claim": "Spain Peninsula 80%, Balearics 4%, Canary/Ceuta/Melilla 2%, Portugal Mainland 12%, Madeira/Azores 2%."
+        },
+        "TECM-WGT-01": {
+          "source": "Opportunity1_Tecnomania.docx",
+          "locator": "Section 5.4 Weight Profile",
+          "claim": "6% of parcels are 15-20kg and 4% are 20-30kg, above the 15kg challenge limit."
+        },
+        "TECM-DIM-01": {
+          "source": "Opportunity1_Tecnomania.docx",
+          "locator": "Section 5.5 Parcel Dimensions",
+          "claim": "10% of parcels are XL/XXL up to 110x80x30cm, above the 80x80x60cm challenge size envelope."
+        },
+        "TECM-RET-01": {
+          "source": "Opportunity1_Tecnomania.docx",
+          "locator": "Section 7.4 Returns Management",
+          "claim": "Tecnomania expects returns volume of approximately 8.5% of forward shipments."
+        },
+        "TECM-PUDO-01": {
+          "source": "Opportunity1_Tecnomania.docx",
+          "locator": "Section 6.2 Alternative Delivery Options",
+          "claim": "Tecnomania asks for pickup point / locker fallback after failed home delivery attempts."
+        },
+        "TECM-SVC-01": {
+          "source": "Opportunity1_Tecnomania.docx",
+          "locator": "Section 7.2 Delivery Attempts",
+          "claim": "Tecnomania requires a minimum of three home-delivery attempts."
+        },
+        "TECM-TECH-01": {
+          "source": "Opportunity1_Tecnomania.docx",
+          "locator": "Section 9.1 Integration Requirements",
+          "claim": "Tecnomania requires API label, manifest, tracking, claims, and webhook integration."
+        },
+        "FIN-01": {
+          "source": "PL_Industry_Challenge.xlsx",
+          "locator": "Read Me / Finance Guardrails per deal",
+          "claim": "Target margin 21%, minimum margin 13%, VP approval below 13%, automatic no-go below 9%."
+        },
+        "SVC-01": {
+          "source": "Amazon_Shipping_AI_Copilot.pptx",
+          "locator": "Service guardrails slide",
+          "claim": "Supported challenge scope is Peninsular Spain and Balearics, 1-2 day delivery, OTP/SOD, max 15kg, max 80x80x60cm."
+        }
+      }
+    },
+    {
+      "id": "pink_papaya",
+      "display_name": "Pink Papaya S.L.",
+      "short_name": "Pink Papaya",
+      "opportunity_type": "Discovery pack",
+      "sector": "Direct-to-consumer fashion",
+      "stage": "Discovery / Qualification",
+      "source_files": [
+        "Opportunity2_PinkPapaya.docx",
+        "PL_Industry_Challenge.xlsx",
+        "README_Industry_Challenge.docx",
+        "Amazon_Shipping_AI_Copilot.pptx"
+      ],
+      "volume": {
+        "annual_parcels": null,
+        "baseline_daily_parcels": 3800,
+        "peak_multiplier": 6.0,
+        "start_date": null
+      },
+      "geography": [
+        {
+          "region": "spain_peninsula",
+          "label": "Spain",
+          "share": 0.76,
+          "evidence": ["PAPA-GEO-01"]
+        },
+        {
+          "region": "france",
+          "label": "France",
+          "share": 0.18,
+          "evidence": ["PAPA-GEO-01", "PAPA-FRA-01", "PAPA-FRA-02"]
+        },
+        {
+          "region": "italy",
+          "label": "Italy",
+          "share": 0.05,
+          "evidence": ["PAPA-GEO-01"]
+        },
+        {
+          "region": "portugal_mainland",
+          "label": "Portugal",
+          "share": 0.01,
+          "evidence": ["PAPA-GEO-01"]
+        }
+      ],
+      "parcel_profile_adjustment": {
+        "serviceable_share_after_weight_and_size_limits": 1.0,
+        "reason": "90% of parcels are light apparel/accessories. Papaya Home heavy or awkward items are low-volume but must be validated before final pricing.",
+        "evidence": ["PAPA-PARCEL-01", "PAPA-HOME-01"]
+      },
+      "pricing_weight_mix": {
+        "0_0_5": 0.25,
+        "0_5_1": 0.30,
+        "1_2": 0.35,
+        "2_5": 0.08,
+        "5_10": 0.015,
+        "10_15": 0.005
+      },
+      "requirements": [
+        {
+          "id": "home_delivery",
+          "label": "Home delivery as the primary brand experience",
+          "status": "supported",
+          "evidence": ["PAPA-HOMEDEL-01"]
+        },
+        {
+          "id": "weekend_delivery",
+          "label": "Weekend relevance due to Thursday-to-Sunday sales spikes",
+          "status": "supported",
+          "evidence": ["PAPA-WEEKEND-01"]
+        },
+        {
+          "id": "pudo",
+          "label": "Pickup points used today as workaround",
+          "status": "blocked",
+          "evidence": ["PAPA-PUDO-01"]
+        },
+        {
+          "id": "heavy_bulky",
+          "label": "Papaya Home chunky/heavy or awkward large items",
+          "status": "review",
+          "evidence": ["PAPA-HOME-01"]
+        },
+        {
+          "id": "client_returns",
+          "label": "Claims and returns process improvements",
+          "status": "review",
+          "evidence": ["PAPA-CLAIMS-01"]
+        }
+      ],
+      "pain_points": [
+        "Peak courier collapse and random pickup-point dumping.",
+        "Slow claims reimbursement and paperwork burden.",
+        "Customer service failures spill into Pink Papaya's own CX team."
+      ],
+      "premium_services_recommended": [],
+      "decision_hint": "conditional_pursue_spain_first",
+      "contradictions": [
+        {
+          "topic": "France timing",
+          "position_a": "Lucia says Pink Papaya could live with Spain first and France later.",
+          "position_b": "Marta says France is not optional and needs a real timeline.",
+          "evidence": ["PAPA-FRA-01", "PAPA-FRA-02"]
+        }
+      ],
+      "evidence": {
+        "PAPA-VOL-01": {
+          "source": "Opportunity2_PinkPapaya.docx",
+          "locator": "Lucia email, 11 June 2026",
+          "claim": "Normal volume is about 3,800 parcels per day; Black Friday reached roughly six times a normal day."
+        },
+        "PAPA-GEO-01": {
+          "source": "Opportunity2_PinkPapaya.docx",
+          "locator": "Lucia email, 12 June 2026",
+          "claim": "Last month Spain was about 76%, France 18%, Italy 5%, Portugal 1%."
+        },
+        "PAPA-FRA-01": {
+          "source": "Opportunity2_PinkPapaya.docx",
+          "locator": "Lucia email, 12 June 2026",
+          "claim": "Lucia says Pink Papaya could launch Spain first and add France later if the plan is real."
+        },
+        "PAPA-FRA-02": {
+          "source": "Opportunity2_PinkPapaya.docx",
+          "locator": "Marta email, 13 June 2026",
+          "claim": "Marta says France is not a maybe-later market and requires a credible timeline."
+        },
+        "PAPA-PARCEL-01": {
+          "source": "Opportunity2_PinkPapaya.docx",
+          "locator": "Lucia email, 11 June 2026",
+          "claim": "90% of parcels are apparel and accessories, most well under 2kg."
+        },
+        "PAPA-HOME-01": {
+          "source": "Opportunity2_PinkPapaya.docx",
+          "locator": "Lucia email, 12 June 2026",
+          "claim": "Papaya Home has some heavy or awkwardly large items at low volume."
+        },
+        "PAPA-HOMEDEL-01": {
+          "source": "Opportunity2_PinkPapaya.docx",
+          "locator": "Lucia email, 11 June 2026",
+          "claim": "The vast majority of customers want home delivery because that is the Pink Papaya experience."
+        },
+        "PAPA-WEEKEND-01": {
+          "source": "Opportunity2_PinkPapaya.docx",
+          "locator": "Call note, 9 June 2026",
+          "claim": "Sales spike Thursday to Sunday, making weekend operations relevant."
+        },
+        "PAPA-PUDO-01": {
+          "source": "Opportunity2_PinkPapaya.docx",
+          "locator": "Lucia email, 12 June 2026",
+          "claim": "Pickup points are mostly a workaround because home delivery has been failing."
+        },
+        "PAPA-CLAIMS-01": {
+          "source": "Opportunity2_PinkPapaya.docx",
+          "locator": "Lucia email, 11 June 2026",
+          "claim": "Claims take nearly a month and require too much paperwork."
+        },
+        "FIN-01": {
+          "source": "PL_Industry_Challenge.xlsx",
+          "locator": "Read Me / Finance Guardrails per deal",
+          "claim": "Target margin 21%, minimum margin 13%, VP approval below 13%, automatic no-go below 9%."
+        },
+        "SVC-01": {
+          "source": "Amazon_Shipping_AI_Copilot.pptx",
+          "locator": "Service guardrails slide",
+          "claim": "Supported challenge scope is Peninsular Spain and Balearics, 1-2 day delivery, OTP/SOD, max 15kg, max 80x80x60cm."
+        }
+      }
+    },
+    {
+      "id": "iberia_outfitters",
+      "display_name": "Iberia Outfitters S.L.",
+      "short_name": "Iberia Outfitters",
+      "opportunity_type": "Demo normalized intake",
+      "sector": "Outdoor apparel and accessories",
+      "stage": "Demo / Qualification",
+      "source_files": [
+        "Demo_IberiaOutfitters_NormalizedInput.json",
+        "PL_Industry_Challenge.xlsx",
+        "README_Industry_Challenge.docx",
+        "Amazon_Shipping_AI_Copilot.pptx"
+      ],
+      "volume": {
+        "annual_parcels": 840000,
+        "baseline_daily_parcels": null,
+        "peak_multiplier": 3.5,
+        "start_date": "2027-03-01"
+      },
+      "geography": [
+        {
+          "region": "spain_peninsula",
+          "label": "Spain - Iberian Peninsula",
+          "share": 0.88,
+          "evidence": ["IBER-GEO-01"]
+        },
+        {
+          "region": "balearic_islands",
+          "label": "Spain - Balearic Islands",
+          "share": 0.06,
+          "evidence": ["IBER-GEO-01"]
+        },
+        {
+          "region": "portugal_mainland",
+          "label": "Portugal - Mainland",
+          "share": 0.04,
+          "evidence": ["IBER-GEO-01"]
+        },
+        {
+          "region": "france",
+          "label": "France",
+          "share": 0.02,
+          "evidence": ["IBER-GEO-01"]
+        }
+      ],
+      "parcel_profile_adjustment": {
+        "serviceable_share_after_weight_and_size_limits": 0.97,
+        "reason": "Most parcels are apparel and accessories under 5kg, but 3% of camping equipment may exceed the 80x80x60cm envelope and should be carved out until validated.",
+        "evidence": ["IBER-PARCEL-01", "IBER-DIM-01"]
+      },
+      "pricing_weight_mix": {
+        "0_0_5": 0.18,
+        "0_5_1": 0.22,
+        "1_2": 0.30,
+        "2_5": 0.22,
+        "5_10": 0.06,
+        "10_15": 0.02
+      },
+      "requirements": [
+        {
+          "id": "home_delivery",
+          "label": "Home delivery for ecommerce customers",
+          "status": "supported",
+          "evidence": ["IBER-SVC-01"]
+        },
+        {
+          "id": "weekend_delivery",
+          "label": "Weekend delivery during campaign drops",
+          "status": "supported",
+          "evidence": ["IBER-PEAK-01"]
+        },
+        {
+          "id": "tracking_api",
+          "label": "API tracking events for customer support",
+          "status": "supported",
+          "evidence": ["IBER-TECH-01"]
+        },
+        {
+          "id": "pudo",
+          "label": "Locker delivery requested for some rural customers",
+          "status": "blocked",
+          "evidence": ["IBER-PUDO-01"]
+        },
+        {
+          "id": "client_returns",
+          "label": "Seasonal return pickups",
+          "status": "review",
+          "evidence": ["IBER-RET-01"]
+        },
+        {
+          "id": "heavy_bulky",
+          "label": "Oversize camping equipment",
+          "status": "review",
+          "evidence": ["IBER-DIM-01"]
+        }
+      ],
+      "pain_points": [
+        "Campaign drops create short peaks that strain the current courier.",
+        "The customer wants cleaner tracking for support tickets.",
+        "Portugal and France demand needs separation from the Spain launch."
+      ],
+      "premium_services_recommended": ["SOD"],
+      "decision_hint": "conditional_pursue",
+      "evidence": {
+        "IBER-VOL-01": {
+          "source": "Demo_IberiaOutfitters_NormalizedInput.json",
+          "locator": "Demo intake / volume",
+          "claim": "Iberia Outfitters is estimated at 840,000 annual parcels."
+        },
+        "IBER-GEO-01": {
+          "source": "Demo_IberiaOutfitters_NormalizedInput.json",
+          "locator": "Demo intake / geography",
+          "claim": "Spain Peninsula 88%, Balearics 6%, Portugal 4%, France 2%."
+        },
+        "IBER-PARCEL-01": {
+          "source": "Demo_IberiaOutfitters_NormalizedInput.json",
+          "locator": "Demo intake / parcel profile",
+          "claim": "Most parcels are apparel and accessories under 5kg."
+        },
+        "IBER-DIM-01": {
+          "source": "Demo_IberiaOutfitters_NormalizedInput.json",
+          "locator": "Demo intake / parcel profile",
+          "claim": "3% of camping equipment may exceed 80x80x60cm and needs validation."
+        },
+        "IBER-SVC-01": {
+          "source": "Demo_IberiaOutfitters_NormalizedInput.json",
+          "locator": "Demo intake / service needs",
+          "claim": "The customer requests home delivery for ecommerce customers."
+        },
+        "IBER-PEAK-01": {
+          "source": "Demo_IberiaOutfitters_NormalizedInput.json",
+          "locator": "Demo intake / peak demand",
+          "claim": "Campaign drops can reach 3.5x normal daily volume."
+        },
+        "IBER-TECH-01": {
+          "source": "Demo_IberiaOutfitters_NormalizedInput.json",
+          "locator": "Demo intake / integration",
+          "claim": "The customer wants tracking events for customer support."
+        },
+        "IBER-PUDO-01": {
+          "source": "Demo_IberiaOutfitters_NormalizedInput.json",
+          "locator": "Demo intake / service needs",
+          "claim": "Locker delivery was requested for some rural customers."
+        },
+        "IBER-RET-01": {
+          "source": "Demo_IberiaOutfitters_NormalizedInput.json",
+          "locator": "Demo intake / service needs",
+          "claim": "The customer asks about seasonal return pickups."
+        },
+        "FIN-01": {
+          "source": "PL_Industry_Challenge.xlsx",
+          "locator": "Read Me / Finance Guardrails per deal",
+          "claim": "Target margin 21%, minimum margin 13%, VP approval below 13%, automatic no-go below 9%."
+        },
+        "SVC-01": {
+          "source": "Amazon_Shipping_AI_Copilot.pptx",
+          "locator": "Service guardrails slide",
+          "claim": "Supported challenge scope is Peninsular Spain and Balearics, 1-2 day delivery, OTP/SOD, max 15kg, max 80x80x60cm."
+        }
+      }
+    }
+  ]
+}

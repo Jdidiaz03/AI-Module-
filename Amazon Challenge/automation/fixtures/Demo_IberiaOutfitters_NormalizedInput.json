@@ -1,0 +1,23 @@
+{
+  "company": "Iberia Outfitters S.L.",
+  "type": "Demo normalized intake",
+  "annual_parcels": 840000,
+  "geography": {
+    "spain_peninsula": 0.88,
+    "balearic_islands": 0.06,
+    "portugal_mainland": 0.04,
+    "france": 0.02
+  },
+  "parcel_profile": {
+    "core": "Outdoor apparel and accessories, mostly under 5kg",
+    "review_needed": "3% camping equipment may exceed 80x80x60cm"
+  },
+  "requirements": [
+    "home delivery",
+    "weekend delivery during campaign drops",
+    "tracking API events",
+    "locker delivery for rural customers",
+    "seasonal return pickups"
+  ],
+  "peak_multiplier": 3.5
+}

@@ -1,0 +1,80 @@
+{
+  "rule_version": "amazon-shipping-industry-challenge-2026-v1",
+  "automation_mode": "offline_local_deterministic_loop",
+  "cases_processed": 3,
+  "passed_all_kpis": true,
+  "case_results": [
+    {
+      "case_id": "tecnomania",
+      "passed": true,
+      "iterations": 1,
+      "recommendation": "Conditional pursue: price only serviceable scope and require leadership review.",
+      "serviceable_annual_volume": 2207520,
+      "validator_results": [
+        {
+          "agent": "Code Quality Agent",
+          "status": "pass",
+          "finding_count": 0
+        },
+        {
+          "agent": "Project Alignment Agent",
+          "status": "pass",
+          "finding_count": 0
+        },
+        {
+          "agent": "KPI Trial Agent",
+          "status": "pass",
+          "finding_count": 0
+        }
+      ]
+    },
+    {
+      "case_id": "pink_papaya",
+      "passed": true,
+      "iterations": 1,
+      "recommendation": "Conditional pursue: Spain-first proposal with explicit France gap.",
+      "serviceable_annual_volume": 1054120,
+      "validator_results": [
+        {
+          "agent": "Code Quality Agent",
+          "status": "pass",
+          "finding_count": 0
+        },
+        {
+          "agent": "Project Alignment Agent",
+          "status": "pass",
+          "finding_count": 0
+        },
+        {
+          "agent": "KPI Trial Agent",
+          "status": "pass",
+          "finding_count": 0
+        }
+      ]
+    },
+    {
+      "case_id": "iberia_outfitters",
+      "passed": true,
+      "iterations": 1,
+      "recommendation": "Conditional pursue: price only serviceable scope and require leadership review.",
+      "serviceable_annual_volume": 765912,
+      "validator_results": [
+        {
+          "agent": "Code Quality Agent",
+          "status": "pass",
+          "finding_count": 0
+        },
+        {
+          "agent": "Project Alignment Agent",
+          "status": "pass",
+          "finding_count": 0
+        },
+        {
+          "agent": "KPI Trial Agent",
+          "status": "pass",
+          "finding_count": 0
+        }
+      ]
+    }
+  ]
+}
