@@ -61,9 +61,9 @@ async function fetchJson(path) {
 async function loadDashboard() {
   try {
     const outputFiles = await loadOutputFiles();
-    const [loopReport, ...outputs] = await Promise.all([
+    const [loopReport, outputs] = await Promise.all([
       fetchJson(LOOP_REPORT),
-      ...outputFiles.map(fetchJson),
+      loadCaseOutputs(outputFiles),
     ]);
     latestLoopReport = loopReport;
     caseOutputs = mergeOutputs(outputs, loadSubmittedOutputs())
@@ -90,9 +90,27 @@ async function loadDashboard() {
     dataSourceStatus.textContent = "Data load failed";
     projectOverview.innerHTML = "";
     dashboardState.classList.add("is-error");
-    dashboardState.textContent =
-      "Automation output could not be loaded. Start a local server from the project folder, then open http://localhost:8000/dashboard.html.";
+    const isLocal = ["localhost", "127.0.0.1", ""].includes(window.location.hostname);
+    dashboardState.textContent = isLocal
+      ? "Automation output could not be loaded. Start the project server from the Amazon Challenge folder, then open http://localhost:8000/dashboard.html."
+      : "Automation output could not be loaded. Submit a review again or refresh the live deployment.";
   }
+}
+
+async function loadCaseOutputs(outputFiles) {
+  const results = await Promise.allSettled(outputFiles.map(fetchJson));
+  const loaded = [];
+  results.forEach((result, index) => {
+    if (result.status === "fulfilled") {
+      loaded.push(result.value);
+    } else {
+      console.warn(`Skipping unavailable output file: ${outputFiles[index]}`, result.reason);
+    }
+  });
+  if (!loaded.length) {
+    throw new Error("No dashboard case outputs could be loaded.");
+  }
+  return loaded;
 }
 
 function loadSubmittedOutputs() {
